@@ -14,10 +14,15 @@ const App = () =>
   // 2. The UI Zone (JSX)
   return (
     <div>
-      <h1>Control Panel: Online</h1>
+      <h1></h1>
       <IncidentBox/>
       <hr />
-      {
+     
+     
+     
+     
+     
+      {/*
       operativeData.map((currentItem) =>{
          return(  
          <ProfileCard 
@@ -27,7 +32,7 @@ const App = () =>
          days={currentItem.days} />
          );
       })
-    }
+    */}
     
      
     
