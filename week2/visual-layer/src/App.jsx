@@ -1,5 +1,5 @@
 import ProfileCard from "./ProfileCard";
-
+import IncidentBox from "./IncidentBox";
 const App = () =>
 { 
 
@@ -15,6 +15,7 @@ const App = () =>
   return (
     <div>
       <h1>Control Panel: Online</h1>
+      <IncidentBox/>
       <hr />
       {
       operativeData.map((currentItem) =>{
