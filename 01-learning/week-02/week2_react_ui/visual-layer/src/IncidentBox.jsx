@@ -19,7 +19,10 @@ const IncidentBox = () =>
             placeholder='Floor Number'
             onChange={(e)=>setfloorNumber(e.target.value)}
         ></input>
-       <textarea onChange={(e)=> setNotes(e.target.value)}  value={notes}>  </textarea>
+       <textarea 
+            onChange={(e)=> setNotes(e.target.value)}  
+            value={notes}>
+        </textarea>
        <button onClick={handleGenerate}>Generate Official Report</button>
        { finalReport && ( <>
     <h2>Official Log:</h2> 

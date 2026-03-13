@@ -1,5 +1,6 @@
 import ProfileCard from "./ProfileCard";
 import IncidentBox from "./IncidentBox";
+import EnterpriseForm from "./EnterpriseForm";
 const App = () =>
 { 
 
@@ -15,13 +16,10 @@ const App = () =>
   return (
     <div>
       <h1></h1>
+      <EnterpriseForm/>
       <IncidentBox/>
-      <hr />
-     
-     
-     
-     
-     
+      <hr />    
+    
       {/*
       operativeData.map((currentItem) =>{
          return(  
