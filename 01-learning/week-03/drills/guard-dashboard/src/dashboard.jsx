@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-
+import GuardCard from './GuardCard';
 const Dashboard = () => {
     const [incidentRawData, setincidentRawData] = useState({ Gname: "", badge: "", supervisor: "", shift: "", incidentdrat: "" });
     const [error, seterror] = useState("");
+    const [roster, setRoster] = useState([]);
     const formData = (e) => {
         setincidentRawData({
             ...incidentRawData, [e.target.name]: e.target.value
@@ -21,7 +22,12 @@ const Dashboard = () => {
         alert(incidentRawData.Gname);
         if (incidentRawData.Gname == "") {
             seterror("GuardName can not empty");
+            return;
         }
+
+        setRoster([...roster,incidentRawData]);
+        alert("SAVE USER")
+        resetForm();
     }
     const saveDraft = (e) => {
         localStorage.setItem("formdraft", JSON.stringify(incidentRawData));
@@ -29,6 +35,11 @@ const Dashboard = () => {
     const clearDraft = (e) => {
         localStorage.removeItem("formdraft");
         setincidentRawData({ Gname: "", badge: "", supervisor: "", shift: "", incidentdrat: "" });
+    }
+    const resetForm = () =>
+    {   
+         
+        setincidentRawData({ Gname: "", badge: "", supervisor: "", shift: "", incidentdrat: "" })
     }
     return (
         <>
@@ -46,10 +57,25 @@ const Dashboard = () => {
                 <textarea cols="15" rows="10" name="incidentdrat" value={incidentRawData.incidentdrat} onChange={formData} placeholder="Just enter What you know? ">
                 </textarea>
                 <hr />
-                <input type="button" value="Clear" onClick={clearDraft} />
+                <input type="button" value="Clear Draft" onClick={clearDraft} />
                 <input type="button" value="Save Draft" onClick={saveDraft} />
+                 <input type="button" value="Reset" onClick={resetForm} />
                 <input type="submit" value="Generate" />
             </form>
+           {/* The Roster Assembly Line */}
+            <div style={{ marginTop: "30px" }}>
+                <h3>Active Guard Roster ({roster.length})</h3>
+                
+                {roster.map((guard, index) => (
+                    
+                    <GuardCard 
+                        key={index} /* React requires a unique key for every item in a list */
+                        name={guard.Gname} 
+                        badge={guard.badge} 
+                    />
+                ))}
+            </div>
+           
         </>
     )
 }
