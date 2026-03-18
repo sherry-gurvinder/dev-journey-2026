@@ -41,6 +41,18 @@ const Dashboard = () => {
          
         setincidentRawData({ Gname: "", badge: "", supervisor: "", shift: "", incidentdrat: "" })
     }
+    const deleteGuard = (data) =>
+    {
+
+        const updateRoster = roster.filter((current,index)=>
+        {
+            return index!== data;
+            
+        })
+        setRoster(updateRoster);
+
+
+    }
     return (
         <>
             <h2>Incident Report Assistance</h2>
@@ -64,14 +76,17 @@ const Dashboard = () => {
             </form>
            {/* The Roster Assembly Line */}
             <div style={{ marginTop: "30px" }}>
+               
                 <h3>Active Guard Roster ({roster.length})</h3>
                 
                 {roster.map((guard, index) => (
-                    
+                  
                     <GuardCard 
                         key={index} /* React requires a unique key for every item in a list */
                         name={guard.Gname} 
                         badge={guard.badge} 
+                        id={index}             // 1. We pass down the ID so the employee knows it //
+                        removeGuard={deleteGuard}   // 2. THE STICKY NOTE! We pass the function down and call it 'remove' 
                     />
                 ))}
             </div>
