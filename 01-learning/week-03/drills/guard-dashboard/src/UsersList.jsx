@@ -1,26 +1,24 @@
 import {useState,useEffect} from "react";
-
+import {getUserList} from "./services/api"
 
 const UserList = () =>
 {
     const [users,setusers] = useState([]);
     const [loading,setloading] = useState(true);
     const [error,seterror] =useState("");
-   useEffect(() => {
-        const fetchData = async () => {
+    const retry = () =>
+    {
+        console.log("Retry Function");
+        fetchData();
+        
+    }
+    const fetchData = async () => {
             // 2. Wrap the dangerous stuff in a try block
+            seterror("");
+        setloading(true);
             try {
                 await new Promise((resolve) => setTimeout(resolve, 2000));
-                
-                // I BROKE THE URL ON PURPOSE ("users123")
-                const response = await fetch('https://jsonplaceholder.typicode.com/users123'); 
-                
-                // Advanced check: if the server says "404 Not Found", throw an error manually!
-                if (!response.ok) {
-                    throw new Error("Could not fetch the data!");
-                }
-
-                const result = await response.json();
+                const result = await getUserList();
                 setusers(result);
                 setloading(false);
 
@@ -30,6 +28,8 @@ const UserList = () =>
                 setloading(false);     // Turn off the loading screen
             }
         }
+   useEffect(() => {
+        
         
         fetchData();
     }, []);
@@ -41,7 +41,7 @@ const UserList = () =>
             
             {/* 4. Show the error if it exists! */}
             {error && <h2 style={{color: "red"}}>{error}</h2>}
-            
+            <button onClick={retry}> Retry</button>
             {!loading && !error && (
                 users.map((user) => (
                     <h4 key={user.id}>{user.name}</h4>
