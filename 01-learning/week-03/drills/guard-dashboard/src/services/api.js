@@ -23,6 +23,6 @@ const handleResponse = async (res) =>
 export const getUserList = async() =>
 {   
      console.log("Call to API Get User List")
-    const response = await fetch("https://jsonplaceholder.typicode.com/usercs");
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
     return await handleResponse(response);
 }

@@ -4,6 +4,7 @@ import {getUserList} from "./services/api"
 const UserList = () =>
 {
     const [users,setusers] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const [loading,setloading] = useState(true);
     const [error,seterror] =useState("");
     const retry = () =>
@@ -33,6 +34,11 @@ const UserList = () =>
         
         fetchData();
     }, []);
+
+    const filteredUsers  = users.filter((user)=>
+    
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     
     return(
         <>  
@@ -42,11 +48,13 @@ const UserList = () =>
             {/* 4. Show the error if it exists! */}
             {error && <h2 style={{color: "red"}}>{error}</h2>}
             <button onClick={retry}> Retry</button>
+            <input type="text" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)}/>
             {!loading && !error && (
-                users.map((user) => (
+                filteredUsers.map((user) => (
                     <h4 key={user.id}>{user.name}</h4>
                 ))
             )}
+            {filteredUsers.length === 0 && <p>No users match your search.</p>}
         </>
     )
 }
