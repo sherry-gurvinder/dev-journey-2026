@@ -1,4 +1,4 @@
-import { Routes,Route,Link } from "react-router-dom";
+import { Routes,Route,NavLink,Link } from "react-router-dom";
 import CreatePost from './pages/CreatePost'
 import Dashboard from './pages/Dashboard'
 import UserList from './pages/UserList'
@@ -8,11 +8,32 @@ function App() {
     <div>
        <h1>Week 4 - React Router</h1>
       <nav>
-      <Link to="/">Dashboard</Link>
+
+      {/*<Link to="/">Dashboard</Link>
       <Link to="/createpost">Create Post</Link>
       <Link to="/userlist">User List</Link>
-    
-
+      */}  
+      <NavLink to="/" 
+        style={({isActive})=>
+        ({
+          color:isActive?"red":"purple",
+          fontWeight:isActive?"bold":"normal"
+        })
+      }
+      
+      >Dashboard</NavLink>
+      <NavLink to="/createpost"  style={({isActive})=>
+        ({
+          color:isActive?"red":"purple",
+          fontWeight:isActive?"bold":"normal"
+        })
+      }>Create Post</NavLink>
+      <NavLink to="/userlist"  style={({isActive})=>
+        ({
+          color:isActive?"red":"purple",
+          fontWeight:isActive?"bold":"normal"
+        })
+      }>User List</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Dashboard/>}></Route>
