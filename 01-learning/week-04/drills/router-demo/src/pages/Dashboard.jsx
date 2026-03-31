@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 
+    const navigate = useNavigate();
     const [userId,setuserID] = useState("");
     const handleUserid = () =>
     {
-
+        navigate("/users/"+userId);
     }
 
   return( 
