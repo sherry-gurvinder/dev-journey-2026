@@ -1,7 +1,7 @@
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 
-const getUsers = async () =>
+export const getUsers = async () =>
         {
             const response = await fetch(`${BASE_URL}/users`)
             if(!response.ok)
@@ -22,4 +22,20 @@ export const getUserById = async(id)=>
 
 
 }
-export default getUsers;
+export const createPost = async (data) =>
+{
+    const response = await fetch(`${BASE_URL}/posts`,
+                {
+                method:'POST',
+                headers:{'content-type':'application/json'},
+                body:JSON.stringify(data)
+                })
+
+        if(!response.ok)
+        {
+            throw new Error("Failed to add users");
+            
+        }
+         return await response.json();
+    
+}

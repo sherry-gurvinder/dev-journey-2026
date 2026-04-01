@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import getUsers from "../services/api";
+import {getUsers} from "../services/api";
 
 const UserList = () =>
 
@@ -16,6 +16,7 @@ const UserList = () =>
 
         const loadData = async() =>
         {
+            setisLoading(true); 
                 try {
                     const result  = await getUsers();
                 setUserData(result);
