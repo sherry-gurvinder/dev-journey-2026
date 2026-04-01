@@ -11,4 +11,15 @@ const getUsers = async () =>
             return await response.json();
 
         }
+export const getUserById = async(id)=>
+{
+    const response = await fetch(`${BASE_URL}/users/${id}`)
+    if(!response.ok)
+            {
+               throw new Error("Failed to fetch users");
+            }
+            return await response.json();
+
+
+}
 export default getUsers;
