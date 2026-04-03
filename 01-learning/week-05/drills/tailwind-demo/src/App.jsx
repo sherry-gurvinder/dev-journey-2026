@@ -1,4 +1,5 @@
 import Badge from './components/Badge'
+import Button from './components/Button';
 const App = () =>
 {
   return(   
@@ -27,6 +28,11 @@ const App = () =>
               <Badge text="Active" color="green" />
               <Badge text="Pending" color="blue" />
               <Badge text="Inactive" color="red" />
+            </div>
+            <div className="flex gap-2">
+              <Button variant="primary">Save</Button>
+              <Button variant="secondary">Cancel</Button>
+              <Button variant="danger">Delete</Button>
             </div>
             <button className="bg-blue-600 w-full py-2 rounded-lg text-white font-medium mt-4 hover:bg-blue-700 transition-colors duration-200">
                 View Profile
