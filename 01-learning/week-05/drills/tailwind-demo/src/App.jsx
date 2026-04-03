@@ -1,7 +1,9 @@
+import Badge from './components/Badge'
 const App = () =>
 {
   return(   
       <div>
+       
         <nav className="bg-gray-900 text-white px-6 py-4">
          <div className="flex justify-between items-center">
            <div >Logo</div>
@@ -21,9 +23,15 @@ const App = () =>
             <hr/>
             <p className="text-sm text-gray-500 uppercase">Email:</p>
             <p className="text-base text-gray-900">Value</p>
+             <div className="flex gap-2 mt-2">
+              <Badge text="Active" color="green" />
+              <Badge text="Pending" color="blue" />
+              <Badge text="Inactive" color="red" />
+            </div>
             <button className="bg-blue-600 w-full py-2 rounded-lg text-white font-medium mt-4 hover:bg-blue-700 transition-colors duration-200">
                 View Profile
             </button>
+            
           </div>
         </div>
         <div className="bg-white-900 ">
