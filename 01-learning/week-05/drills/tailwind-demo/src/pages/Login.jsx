@@ -1,10 +1,12 @@
 import Button from "../components/Button";
-import { useState } from "react";
-const Login = () =>
+import { useState} from "react";
+const Login = (props) =>
 {   const [error, setError] = useState("");
     const [Email,setEmail] = useState("");
     const [Password,setPassword] = useState("");
     const [LoginSuccess,setLoginSuccess] =useState("");
+    const {Theme} = props;
+    console.log(Theme,"Theme is ");
     const emailChange = (e) =>
     {
         setEmail(e.target.value)
@@ -44,7 +46,7 @@ const Login = () =>
     }
     return(
         <div className="grid">
-            <form className="grid bg-gray-200 p-6 m-6 justify-center item-center">
+            <form className={`${Theme} grid p-6 m-6 justify-center item-center`}>
                 <div className="grid justify-center">
                 {error && <p className="text-red-500">{error}</p>}
                 {LoginSuccess && <p className="text-green-500">Login successful</p>}
