@@ -2,15 +2,29 @@ import { useState } from "react";
 import {Bottom} from './component/Bottom';
 import {Header} from './component/Header';
 import {Navbar} from './component/Navbar';
+
+
+
+
 const App = () =>
 {
-  
-
+ 
+    const [isdark,setisdark] = useState(false)
+    const theme = {
+        light : "bg-gray-100 ",
+        dark : " bg-black text-white "
+    }
+    const [pagetheme,setpagetheme] = useState(theme.light);
+    const changeTheme =(e) =>
+    {
+           setisdark(!isdark);
+           setpagetheme(isdark?theme.light:theme.dark)
+    }
   return(
-    <div className="grid border-1 border-red-700 p-4 m-4 bg-green-100">
-      <Navbar/>
-      <Header/>
-      <Bottom/>
+    <div className="grid ">
+      <Navbar pagetheme={pagetheme} changeTheme={changeTheme}  isdark={isdark}  />
+      <Header pagetheme={pagetheme} changeTheme={changeTheme}  isdark={isdark} />
+      <Bottom pagetheme={pagetheme} changeTheme={changeTheme}  isdark={isdark} />
        
     </div>
   )
