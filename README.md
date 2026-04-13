@@ -6,4 +6,4 @@ Daily: Learn & Push daily.
 - ✅ Week 2: React Fundamentals  
 - ✅ Week 3: APIs & useEffect
 - ✅ Week 4: React Router
-- 🔄 Week 5: Tailwind CSS (in progress)
+- ✅ Week 5: Tailwind CSS 
