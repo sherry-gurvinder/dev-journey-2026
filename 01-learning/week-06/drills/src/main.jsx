@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './drills/drill-01-counter/App.jsx'
+//import App from './drills/drill-01-counter/App.jsx'
+import App from './drills/drill-02-theme/App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
