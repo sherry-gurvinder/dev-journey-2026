@@ -15,6 +15,10 @@ const CounterContext = createContext();
         {
             return 0;
         }
+         else
+        {
+            return "No a valid option";
+        }
     }
 const CounterProvider = ({children}) =>
 {
