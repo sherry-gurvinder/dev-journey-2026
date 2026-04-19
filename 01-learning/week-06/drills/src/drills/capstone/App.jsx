@@ -2,20 +2,14 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
+import Navbar from "./components/Navbar";
 import {BrowserRouter , Routes , Route, NavLink} from "react-router-dom";
 
 const App = () =>
 {
     return(
     <BrowserRouter>
-    <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/settings">Settings</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">contact</NavLink>
-        {/* ... more links */}
-      </nav>
-      
+        <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/settings" element={<Settings/>} />
