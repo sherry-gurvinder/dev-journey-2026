@@ -1,4 +1,4 @@
-import {createContext , useState} from "react";
+import {createContext , useCallback, useState} from "react";
 
 const LanguageConetxt = createContext();
 const translations = {
@@ -9,10 +9,10 @@ const translations = {
 const LanguageProvider = ({children}) =>
 {
     const [currentLan,setcurrentLan] = useState("en");
-    const changeLanguage=(lang) =>
+    const changeLanguage= useCallback((lang) =>
     {
         setcurrentLan(lang);
-    }
+    },[]);
     return(
         <LanguageConetxt.Provider value={{currentLan,changeLanguage,translations}}>
             {children}
