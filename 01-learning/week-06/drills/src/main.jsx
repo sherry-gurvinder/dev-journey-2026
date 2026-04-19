@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client'
 //import App from './drills/drill-02-theme/App'
 //import App from './drills/drill-03-reducer/App'
 //import App from './drills/drill-04-custom-hooks/App'
-import App from "./drills/drill-06-auth-context/App"
+//import App from "./drills/drill-06-auth-context/App"
+import App from "./drills/drill-07-language/App"
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
