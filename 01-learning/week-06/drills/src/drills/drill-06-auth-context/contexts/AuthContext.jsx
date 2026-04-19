@@ -8,10 +8,13 @@ const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null);
     const userLogin = (userData) =>
     {
+        alert("login");
+        console.log("Login");
         setUser(userData);
     }
     const userLogout = () =>
     {
+        console.log("Log Out");
         setUser(null);
     }
     return(
